@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace shar
+{
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            System.Console.WriteLine("Задание ЛР1: Разработать программу для решения квадратного уравнения.");
+            int a, b, c, D;
+            float x1 = 0, x2 = 0;
+            System.Console.Write(" Введите число A: ");
+            a = InputInt();
+            System.Console.Write(" Введите число B: ");
+            b = InputInt();
+            System.Console.Write(" Введите число C: ");
+            c = InputInt();
+            D = (int)Math.Pow(b, 2) - 4 * a * c;
+            System.Console.WriteLine(" Дискриминант равен " + D + " ");
+            if (D < 0)
+                System.Console.WriteLine("У данного уравнения нет корней, т.к. D<0 ");
+            else
+            if (D == 0)
+            {
+                x1 = -b / (2 * a);
+                System.Console.WriteLine(" Корень уравнения равен " + x1 + " ");
+            }
+            else if (D > 0)
+            {
+                x1 = (float)(-b + (Math.Sqrt(D))) / (2 * a);
+                x2 = (float)(-b - (Math.Sqrt(D))) / (2 * a);
+                System.Console.WriteLine(" x1 =" + x1 + " x2=" + x2 + " ");
+            }
+
+            System.Console.ReadLine();
+        }
+        private static int InputInt()
+        {
+            int number;
+            string value;
+            do
+            {
+                value = Console.ReadLine();
+                if (int.TryParse(value, out number)) return number;
+                Console.WriteLine(" Данные не являются вещественным числом! ");
+                Console.Write("           Введите число снова: ");
+            } while (true);
+        }
+
+        // 2 способ
+        //private static int InputInt()
+        //{
+        //    int number;
+        //    string value;
+        //    bool s;
+        //    do
+        //    {
+        //        Console.WriteLine("ВВод");
+        //        value = Console.ReadLine();
+        //        s = int.TryParse(value, out number);
+
+        //    } while (!s);
+        //    Console.WriteLine("Число введено верно.");
+        //    return (number);
+        //}
+
+
+    }
+}
